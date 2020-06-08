@@ -9,7 +9,7 @@ sendTG "Docker image build was killed!"
 trap exit_script SIGINT SIGTERM
 
 function sendTG() {
-    curl -s "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendmessage" --data "text=${*}&chat_id=-1001372533112&parse_mode=Markdown"
+    curl -s "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendmessage" --data "text=${*}&chat_id=-1001492198966&parse_mode=Markdown"
 }
 
 sendTG "\`Docker image is being updated!\`"
