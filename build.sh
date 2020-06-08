@@ -14,8 +14,8 @@ function sendTG() {
 
 sendTG "\`Docker image is being updated!\`"
 
-docker build . -t dasbastard/test:latest
+docker build . -t dasbastard/alpine:latest
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker push dasbastard/test
+docker push dasbastard/alpine
 
-sendTG "\`I have pushed new images to docker\` %0A [Images are Here](https://hub.docker.com/r/dasbastard/test)"
+sendTG "\`I have pushed new images to docker\` %0A [Images are Here](https://hub.docker.com/r/dasbastard/alpine)"
