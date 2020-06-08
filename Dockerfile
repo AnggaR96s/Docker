@@ -150,7 +150,7 @@ RUN apk add --no-cache --update \
       jq \
       pv
 
-ADD https://raw.githubusercontent.com/GengKapak/DCLXVI/master/requirements.txt requirements.txt
+ADD https://raw.githubusercontent.com/AnggaR96s/Docker/master/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # The sandbox which can be used for the userbot
