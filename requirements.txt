@@ -13,6 +13,7 @@ cowpy
 cryptg
 cffi
 dnspython
+deezloader
 emoji
 gTTS-token
 gTTS
