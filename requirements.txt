@@ -62,6 +62,7 @@ justwatch
 bitlyshortener
 telethon
 telethon-session-sqlalchemy
+twitter_scraper
 python-dateutil
 git+https://github.com/johnwmillr/LyricsGenius.git
 pyaztro
