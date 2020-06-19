@@ -15,6 +15,7 @@ cffi
 dnspython
 deezloader
 emoji
+geopy
 gTTS-token
 gTTS
 gitpython
