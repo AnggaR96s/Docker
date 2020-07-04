@@ -62,7 +62,7 @@ RUN python3 -m ensurepip \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
     rm -r /root/.cache
 
-ADD https://raw.githubusercontent.com/AnggaR96s/Docker/master/requirements.txt requirements.txt
+ADD https://raw.githubusercontent.com/GengKapak/DCLXVI/master/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
