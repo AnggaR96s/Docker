@@ -1,5 +1,4 @@
-# We're using Alpine Edge
-FROM alpine:edge
+FROM python:3.9.0b4-alpine3.12
 
 #
 # We have to uncomment Community repo for some packages
@@ -40,8 +39,6 @@ RUN apk add --no-cache=true --update \
     pv \
     jq \
     wget \
-    python3 \
-    python3-dev \
     readline-dev \
     sqlite \
     ffmpeg \
@@ -56,14 +53,8 @@ RUN apk add --no-cache=true --update \
 
 RUN python3 -m ensurepip \
     && pip3 install --upgrade pip setuptools \
-    && pip3 install wheel \
-    && rm -r /usr/lib/python*/ensurepip && \
-    if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
-    if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
-    rm -r /root/.cache
+    && pip3 install wheel
 
-ADD https://raw.githubusercontent.com/GengKapak/DCLXVI/master/requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip3 install -r https://raw.githubusercontent.com/GengKapak/DCLXVI/master/requirements.txt
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-CMD ["python3"]
