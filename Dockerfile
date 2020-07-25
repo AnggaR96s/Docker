@@ -8,7 +8,7 @@ ENV PATH /usr/local/bin:$PATH
 ENV LANG C.UTF-8
 
 # runtime dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
 		ca-certificates \
 		netbase \
 	&& rm -rf /var/lib/apt/lists/*
@@ -19,7 +19,7 @@ ENV PYTHON_VERSION 3.8.5
 RUN set -ex \
 	\
 	&& savedAptMark="$(apt-mark showmanual)" \
-	&& apt-get update && apt-get install -y --no-install-recommends \
+	&& apt-get update -qq && apt-get -qq install -y --no-install-recommends \
 		dpkg-dev \
 		gcc \
 		libbluetooth-dev \
@@ -78,7 +78,7 @@ RUN set -ex \
 		| cut -d: -f1 \
 		| sort -u \
 		| xargs -r apt-mark manual \
-	&& apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
+	&& apt-get -qq purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
 	&& rm -rf /var/lib/apt/lists/* \
 	\
 	&& find /usr/local -depth \
@@ -107,15 +107,15 @@ ENV PYTHON_GET_PIP_SHA256 b3153ec0cf7b7bbf9556932aa37e4981c35dc2a2c501d70d91d279
 RUN set -ex; \
 	\
 	savedAptMark="$(apt-mark showmanual)"; \
-	apt-get update; \
-	apt-get install -y --no-install-recommends wget; \
+	apt-get -qq update; \
+	apt-get -qq install -y --no-install-recommends wget; \
 	\
 	wget -O get-pip.py "$PYTHON_GET_PIP_URL"; \
 	echo "$PYTHON_GET_PIP_SHA256 *get-pip.py" | sha256sum --check --strict -; \
 	\
 	apt-mark auto '.*' > /dev/null; \
 	[ -z "$savedAptMark" ] || apt-mark manual $savedAptMark; \
-	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+	apt-get -qq purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
 	rm -rf /var/lib/apt/lists/*; \
 	\
 	python get-pip.py \
@@ -134,7 +134,7 @@ RUN set -ex; \
 	rm -f get-pip.py
 
 # Install apt for DCLXVI
-RUN apt update && apt install -y \
+RUN apt-get -qq update && apt-get -qq install -y \
     apt-utils \
     aria2 \
     bash \
@@ -160,7 +160,7 @@ RUN apt update && apt install -y \
 # Install google chrome
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' && \
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-    apt update && apt install -y google-chrome-stable
+    apt-get -qq update && apt-get -qq install -y google-chrome-stable
 
 # Install chromedriver
 RUN wget -N https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip -P ~/ && \

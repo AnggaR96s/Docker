@@ -1,9 +1,0 @@
-language: bash
-
-dist: focal
-
-services:
-  - docker
-
-script:
-  - bash build.sh
