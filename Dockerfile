@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM ubuntu:groovy
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
