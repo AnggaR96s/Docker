@@ -179,6 +179,6 @@ RUN wget -N https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedrive
     chmod 0755 /usr/bin/chromedriver
 
 # Install python requirements
-RUN pip3 install -r https://raw.githubusercontent.com/GengKapak/DCLXVI/master/requirements.txt
+RUN pip3 install -r https://raw.githubusercontent.com/AnggaR96s/Docker/groovy/requirements.txt
 
 CMD ["bash"]
