@@ -19,6 +19,7 @@ dnspython
 emoji
 fonttools
 geopy
+git+https://github.com/bisoncorps/search-engine-parser.git
 git+https://github.com/johnwmillr/LyricsGenius.git
 gitpython
 glitch_this
@@ -63,7 +64,6 @@ pytz
 qrcode
 regex
 requests
-search-engine-parser
 selenium
 speedtest-cli
 sqlalchemy
