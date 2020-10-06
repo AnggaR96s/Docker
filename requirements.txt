@@ -19,6 +19,7 @@ dnspython
 emoji
 fonttools
 geopy
+git+https://github.com/AnggaR96s/youtube-dl.git
 git+https://github.com/bisoncorps/search-engine-parser.git
 git+https://github.com/johnwmillr/LyricsGenius.git
 gitpython
@@ -77,5 +78,4 @@ vcsi
 wand
 wget
 wikipedia
-youtube-dl
 youtube_search
