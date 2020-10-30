@@ -15,8 +15,8 @@ function sendTG() {
 
 sendTG "\`Docker image is being updated!\`"
 
-docker build . -t gengkapak/pentagram:slim
+docker build . -t gengkapak/mirrorbot:latest
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker push gengkapak/pentagram:slim
+docker push gengkapak/mirrorbot:latest
 
-sendTG "\`I have pushed new images to docker\` %0A [Images are Here](https://hub.docker.com/r/gengkapak/pentagram)"
+sendTG "\`I have pushed new images to docker\` %0A [Images are Here](https://hub.docker.com/r/gengkapak/mirrorbot)"
