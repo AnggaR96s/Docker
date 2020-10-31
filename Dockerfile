@@ -1,4 +1,4 @@
-FROM python:3-slim-buster
+FROM python:3.8.6-slim-buster
 RUN apt-get -qq update
 
 RUN apt-get -qq install -y git g++ gcc autoconf automake \
