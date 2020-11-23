@@ -168,7 +168,8 @@ RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
     libpq-dev \
     sudo \
     zlib1g-dev \
-    megatools
+    megatools \
+    p7zip-full
 
 # Install google chrome
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' && \
