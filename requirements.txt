@@ -14,7 +14,6 @@ colour
 covid
 cowpy
 cryptg
-deezloader
 dnspython
 emoji
 fonttools
@@ -27,6 +26,7 @@ gsearch
 google-trans-new
 gTTS
 gTTS-token
+git+https://gitlab.com/jarviscoldbox/deezloader.git
 hachoir
 heroku3
 html_telegraph_poster
