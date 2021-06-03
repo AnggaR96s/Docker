@@ -1,4 +1,4 @@
-FROM ubuntu:21.04
+FROM gengkapak/impish:latest
 LABEL maintainer "AnggaR96s <angga@linuxmail.org>"
 
 RUN ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
