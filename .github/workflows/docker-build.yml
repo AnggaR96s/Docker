@@ -2,12 +2,12 @@ name: Docker Build
 on:
   push:
     branches:
-      - hirsute
+      - impish
   schedule:
     - cron: '0 23 * * *'
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Login to Docker Hub
@@ -22,7 +22,7 @@ jobs:
         file: ./Dockerfile
         platforms: linux/amd64
         push: true
-        tags: gengkapak/hirsute:userbot
+        tags: gengkapak/impish:userbot
         
     - name: send telegram message
       run: |
