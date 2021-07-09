@@ -22,12 +22,9 @@ RUN apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV GPG_KEY E3FF2839C048B25C084DEBE9B26995E310250568
-ENV PYTHON_VERSION 3.9.5
+ENV PYTHON_VERSION 3.9.6
 
-RUN set -ex \
-	\
-	&& savedAptMark="$(apt-mark showmanual)" \
-	&& apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 		dpkg-dev \
 		gcc \
 		libbluetooth-dev \
@@ -109,10 +106,10 @@ RUN cd /usr/local/bin \
 	&& ln -s python3-config python-config
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 21.1.2
+ENV PYTHON_PIP_VERSION 21.1.3
 # https://github.com/pypa/get-pip
-ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/936e08ce004d0b2fae8952c50f7ccce1bc578ce5/public/get-pip.py
-ENV PYTHON_GET_PIP_SHA256 8890955d56a8262348470a76dc432825f61a84a54e2985a86cd520f656a6e220
+ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/a1675ab6c2bd898ed82b1f58c486097f763c74a9/public/get-pip.py
+ENV PYTHON_GET_PIP_SHA256 6665659241292b2147b58922b9ffe11dda66b39d52d8a6f3aa310bc1d60ea6f7
 
 RUN set -ex; \
 	\
@@ -177,7 +174,7 @@ RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc
     apt-get -qq update && apt-get -qq install -y google-chrome-stable
 
 # Install chromedriver
-RUN wget -N https://chromedriver.storage.googleapis.com/91.0.4472.19/chromedriver_linux64.zip -P ~/ && \
+RUN wget -N https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip -P ~/ && \
     unzip ~/chromedriver_linux64.zip -d ~/ && \
     rm ~/chromedriver_linux64.zip && \
     mv -f ~/chromedriver /usr/bin/chromedriver && \
