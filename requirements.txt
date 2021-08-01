@@ -54,13 +54,16 @@ PyGithub
 pyjokes
 pylast
 PyLyrics
+pyrogram
 pySmartDL
 python-barcode
 python-dateutil
+python-decouple
 python-dotenv
 python-magic
 pytube
 pytz
+py-tgcalls-wrapper
 qrcode
 regex
 requests
