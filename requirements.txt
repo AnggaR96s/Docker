@@ -19,15 +19,15 @@ dnspython
 emoji
 fonttools
 geopy
+git+https://github.com/tomyprs/deezloader.git
 gitpython
 glitch_this
 google-api-python-client
 google-auth-oauthlib
+google_trans_new
 gsearch
-google-trans-new
 gTTS
 gTTS-token
-git+https://github.com/tomyprs/deezloader.git
 hachoir
 heroku3
 html_telegraph_poster
@@ -36,6 +36,7 @@ humanize
 jikanpy
 js2py
 justwatch
+lk21
 lottie
 lxml
 LyricsGenius
@@ -46,6 +47,7 @@ Pillow
 psutil
 psycopg2
 psycopg2-binary
+py-tgcalls-wrapper
 pyaztro
 pybase64
 PyDictionary
@@ -63,7 +65,6 @@ python-dotenv
 python-magic
 pytube
 pytz
-py-tgcalls-wrapper
 qrcode
 regex
 requests
@@ -71,7 +72,7 @@ scipy
 search-engine-parser
 selenium
 speedtest-cli
-sqlalchemy==1.3.23
+sqlalchemy
 telegraph
 telethon
 telethon-session-sqlalchemy
@@ -83,5 +84,5 @@ wand
 wget
 wikipedia
 wordcloud
-youtube_search
 youtube-dl
+youtube_search
