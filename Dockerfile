@@ -113,8 +113,8 @@ ENV PYTHON_PIP_VERSION 21.2.4
 # https://github.com/docker-library/python/issues/365
 ENV PYTHON_SETUPTOOLS_VERSION 57.5.0
 # https://github.com/pypa/get-pip
-ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/c20b0cfd643cd4a19246ccf204e2997af70f6b21/public/get-pip.py
-ENV PYTHON_GET_PIP_SHA256 fa6f3fb93cce234cd4e8dd2beb54a51ab9c247653b52855a48dd44e6b21ff28b
+ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/09bf8356427ffd9d5c24c5cdef4e77a60deb83b1/public/get-pip.py
+ENV PYTHON_GET_PIP_SHA256 4ab6a1231fdce46e230d55947f6207c39e792d895da9197c2fec4143f5456a62
 
 RUN set -ex; \
 	\
@@ -148,7 +148,6 @@ RUN set -ex; \
 
 RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
     apt-utils \
-    aria2 \
     bash \
     build-essential \
     curl \
