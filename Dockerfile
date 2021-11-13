@@ -22,7 +22,7 @@ RUN apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV GPG_KEY E3FF2839C048B25C084DEBE9B26995E310250568
-ENV PYTHON_VERSION 3.9.7
+ENV PYTHON_VERSION 3.9.8
 
 RUN set -ex \
 	\
@@ -109,12 +109,12 @@ RUN cd /usr/local/bin \
 	&& ln -s python3-config python-config
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 21.2.4
+ENV PYTHON_PIP_VERSION 21.3.1
 # https://github.com/docker-library/python/issues/365
 ENV PYTHON_SETUPTOOLS_VERSION 57.5.0
 # https://github.com/pypa/get-pip
-ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/09bf8356427ffd9d5c24c5cdef4e77a60deb83b1/public/get-pip.py
-ENV PYTHON_GET_PIP_SHA256 4ab6a1231fdce46e230d55947f6207c39e792d895da9197c2fec4143f5456a62
+ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py
+ENV PYTHON_GET_PIP_SHA256 c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309
 
 RUN set -ex; \
 	\
@@ -148,6 +148,7 @@ RUN set -ex; \
 
 RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
     apt-utils \
+    aria2 \
     bash \
     build-essential \
     curl \
@@ -180,7 +181,7 @@ RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc
     apt-get -qq update && apt-get -qq install -y google-chrome-stable
 
 # Install chromedriver
-RUN wget -N https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip -P ~/ && \
+RUN wget -N https://chromedriver.storage.googleapis.com/95.0.4638.69/chromedriver_linux64.zip -P ~/ && \
     unzip ~/chromedriver_linux64.zip -d ~/ && \
     rm ~/chromedriver_linux64.zip && \
     mv -f ~/chromedriver /usr/bin/chromedriver && \
@@ -189,19 +190,6 @@ RUN wget -N https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedrive
 
 # Install python requirements
 RUN pip3 install --no-cache-dir -r https://raw.githubusercontent.com/AnggaR96s/Docker/impish/requirements.txt --use-feature=2020-resolver
-
-# Install nvm with node and npm
-ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 16.6.0                                                     
-
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.30.1/install.sh | bash \
-    && . $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default
-
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 # Clean Up
 RUN apt-get clean --dry-run
