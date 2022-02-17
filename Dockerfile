@@ -22,7 +22,7 @@ RUN apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV GPG_KEY E3FF2839C048B25C084DEBE9B26995E310250568
-ENV PYTHON_VERSION 3.9.8
+ENV PYTHON_VERSION 3.9.9
 
 RUN set -ex \
 	\
@@ -109,12 +109,12 @@ RUN cd /usr/local/bin \
 	&& ln -s python3-config python-config
 
 # if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 21.3.1
+ENV PYTHON_PIP_VERSION 22.0.3
 # https://github.com/docker-library/python/issues/365
-ENV PYTHON_SETUPTOOLS_VERSION 57.5.0
+ENV PYTHON_SETUPTOOLS_VERSION 60.9.2
 # https://github.com/pypa/get-pip
-ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/3cb8888cc2869620f57d5d2da64da38f516078c7/public/get-pip.py
-ENV PYTHON_GET_PIP_SHA256 c518250e91a70d7b20cceb15272209a4ded2a0c263ae5776f129e0d9b5674309
+ENV PYTHON_GET_PIP_URL https://github.com/pypa/get-pip/raw/2caf84b14febcda8077e59e9b8a6ef9a680aa392/public/get-pip.py
+ENV PYTHON_GET_PIP_SHA256 7c5239cea323cadae36083079a5ee6b2b3d56f25762a0c060d2867b89e5e06c5
 
 RUN set -ex; \
 	\
@@ -181,7 +181,7 @@ RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc
     apt-get -qq update && apt-get -qq install -y google-chrome-stable
 
 # Install chromedriver
-RUN wget -N https://chromedriver.storage.googleapis.com/97.0.4692.71/chromedriver_linux64.zip -P ~/ && \
+RUN wget -N https://chromedriver.storage.googleapis.com/98.0.4758.102/chromedriver_linux64.zip -P ~/ && \
     unzip ~/chromedriver_linux64.zip -d ~/ && \
     rm ~/chromedriver_linux64.zip && \
     mv -f ~/chromedriver /usr/bin/chromedriver && \
@@ -189,7 +189,7 @@ RUN wget -N https://chromedriver.storage.googleapis.com/97.0.4692.71/chromedrive
     chmod 0755 /usr/bin/chromedriver
 
 # Install python requirements
-RUN pip3 install --no-cache-dir -r https://raw.githubusercontent.com/AnggaR96s/Docker/impish/requirements.txt --use-feature=2020-resolver
+RUN pip3 install --no-cache-dir -r https://raw.githubusercontent.com/AnggaR96s/Docker/jammy/requirements.txt
 
 # Clean Up
 RUN apt-get clean --dry-run
