@@ -84,5 +84,5 @@ wand
 wget
 wikipedia
 wordcloud
-youtube-dl
 youtube_search
+yt-dlp
