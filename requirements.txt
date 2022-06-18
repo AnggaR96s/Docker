@@ -14,7 +14,6 @@ colour
 covid
 cowpy
 cryptg
-deezloader==2021.9.22
 distro
 dnspython
 emoji
@@ -30,7 +29,6 @@ gsearch
 gTTS
 gTTS-token
 hachoir
-heroku3
 html_telegraph_poster
 httplib2
 humanize
@@ -48,7 +46,6 @@ Pillow
 psutil
 psycopg2
 psycopg2-binary
-py-tgcalls-wrapper
 pyaztro
 pybase64
 PyDictionary
