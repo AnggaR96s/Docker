@@ -22,7 +22,7 @@ RUN apt-get install -y --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV GPG_KEY A035C8C19219BA821ECEA86B64E628F8D684696D
-ENV PYTHON_VERSION 3.11.3
+ENV PYTHON_VERSION 3.10
 
 RUN set -ex \
 	\
@@ -180,7 +180,7 @@ RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc
     apt-get -qq update && apt-get -qq install -y google-chrome-stable
 
 # Install chromedriver
-RUN wget -N https://chromedriver.storage.googleapis.com/110.0.5481.77/chromedriver_linux64.zip -P ~/ && \
+RUN wget -N https://chromedriver.storage.googleapis.com/112.0.5615.49/chromedriver_linux64.zip -P ~/ && \
     unzip ~/chromedriver_linux64.zip -d ~/ && \
     rm ~/chromedriver_linux64.zip && \
     mv -f ~/chromedriver /usr/bin/chromedriver && \
