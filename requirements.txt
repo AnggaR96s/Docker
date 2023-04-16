@@ -16,9 +16,11 @@ cowpy
 cryptg
 distro
 dnspython
+doodstream
 emoji==1.7.0
 fonttools
 fake-headers
+FastTelethonhelper
 geopy
 gitpython
 glitch_this
@@ -29,6 +31,7 @@ gsearch
 gTTS
 gTTS-token
 hachoir
+heroku3
 html_telegraph_poster
 httplib2
 humanize
@@ -54,7 +57,6 @@ PyGithub
 pyjokes
 pylast
 PyLyrics
-pyrogram
 pySmartDL
 python-barcode
 python-dateutil
