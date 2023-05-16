@@ -2,7 +2,7 @@ name: Docker Build
 on:
   push:
     branches:
-      - kinetic
+      - mantic
   schedule:
     - cron: '0 23 * * *'
 jobs:
@@ -22,8 +22,8 @@ jobs:
         file: ./Dockerfile
         platforms: linux/amd64
         push: true
-        tags: gengkapak/kinetic:userbot
-        
+        tags: gengkapak/mantic:userbot
+
     - name: send telegram message
       run: |
           function sendTG() {
